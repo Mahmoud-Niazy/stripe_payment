@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:stripe_payment/core/functions/navigation.dart';
+import 'package:stripe_payment/features/check_out/presentation/views/payment_receipt_view.dart';
 import 'package:stripe_payment/features/check_out/presentation/views/widgets/payment_methods_list_view.dart';
 
 import '../../../../../core/widgets/custom_button.dart';
 
-class PaymentMethodsBottomSheet extends StatelessWidget{
+class PaymentMethodsBottomSheet extends StatelessWidget {
   const PaymentMethodsBottomSheet({super.key});
 
   @override
@@ -27,7 +29,12 @@ class PaymentMethodsBottomSheet extends StatelessWidget{
           ),
           CustomButton(
             label: 'Continue',
-            onPressed: () {},
+            onPressed: () {
+              navigate(
+                context: context,
+                screen: PaymentReceiptView(),
+              );
+            },
           ),
         ],
       ),
