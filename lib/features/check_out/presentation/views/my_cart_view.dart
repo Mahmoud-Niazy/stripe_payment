@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stripe_payment/core/utils/styles.dart';
 import 'package:stripe_payment/core/widgets/custom_button.dart';
 import 'package:stripe_payment/features/check_out/presentation/views/widgets/order_info_item.dart';
+import 'package:stripe_payment/features/check_out/presentation/views/widgets/payment_methods_bottom_sheet.dart';
 import 'package:stripe_payment/features/check_out/presentation/views/widgets/total_price_item.dart';
 
 class MyCartView extends StatelessWidget {
@@ -52,7 +53,14 @@ class MyCartView extends StatelessWidget {
               ),
               child: CustomButton(
                 label: 'Complete Payment',
-                onPressed: () {},
+                onPressed: () {
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (context) {
+                      return const PaymentMethodsBottomSheet();
+                    },
+                  );
+                },
               ),
             ),
           ],
